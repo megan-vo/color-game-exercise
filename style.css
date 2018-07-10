@@ -1,0 +1,62 @@
+body {
+  background-color: #232323;
+  margin: 0; /* to get rid of margin space near header */
+  font-family: "Montserrat", "Avenir";
+}
+
+.square {
+  width: 30%;
+  background: purple;
+  padding-bottom: 30%; /* space between block and container */
+  float: left; /* Moves blocks to same line */
+  margin: 1.66%; /* margin between each block  */
+}
+
+#container {
+  max-width: 600px;
+  margin: 0 auto; /* 0 for top and bottom, auto for left and right */
+}
+
+h1 {
+  color: white; 
+  /* color = text color */
+
+  /* Align center */
+  text-align: center;
+  background: steelblue;
+  margin: 0;
+  font-weight: normal;
+  text-transform: uppercase;
+  line-height: 1.1;
+  padding: 20px 0; /* to create space before and after text */
+}
+
+#pickedColor {
+  font-size: 200%;
+}
+
+/* span {
+  color: white;
+} */
+
+#stripe {
+  background: white;
+  height: 30px;
+  text-align: center;
+  color: black;
+}
+
+.selected {
+  background: blue;
+}
+
+button {
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  height: 100%; /* takes up 100% of containing element */
+  font-weight: 700;
+  color: steelblue;
+  letter-spacing: 1px; /* kerning */
+  font-size: inherit;
+}
