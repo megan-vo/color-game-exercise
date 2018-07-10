@@ -2,33 +2,38 @@ var backgroundColor = "#232323";
 var h1Color = "steelblue";
 var numSquares = 6;
 
-var colors = generateRandomColors(numSquares); // get array of colors
+var colors; // get array of colors
+var pickedColor; // winning color
 
 // Grab squares
 var squares = document.querySelectorAll(".square");
-var pickedColor = pickColor();
 
-// Grab h1
 var h1 = document.querySelector("h1");
 
 // Get the winning color
 var colorDisplay = document.getElementById("pickedColor");
 
-// Display the winning color
-colorDisplay.textContent = pickedColor;
-
 // Get the message to be displayed
 var message = document.querySelector("#message")
 
-// get reset button
 var reset = document.querySelector("#reset");
-addReset();
 
 // Get easy/hard buttons
 var modeButtons = document.querySelectorAll(".mode");
-addDifficultyButtons();
 
-addInteractiveSquares();
+init();
+
+function init() {
+  colors = generateRandomColors(numSquares)
+  pickedColor = pickColor();
+
+  // Display the winning color
+  colorDisplay.textContent = pickedColor;
+
+  addDifficultyButtons();
+  addInteractiveSquares();
+  addReset();
+}
 
 // Adds event listeners to squares
 function addInteractiveSquares() {
@@ -89,6 +94,8 @@ function resetGame(numColors) {
   h1.style.background = h1Color;
 
   message.textContent = "";
+
+  reset.textContent = "New Colors"
 }
 
 // Hides or reveals the bottom three blocks
@@ -103,8 +110,6 @@ function addReset() {
   reset.addEventListener("click", function () {
     // if clicked, change the colors array
     resetGame(numSquares);
-
-    this.textContent = "New Colors"
   })
 }
 
