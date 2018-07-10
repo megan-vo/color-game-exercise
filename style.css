@@ -10,6 +10,8 @@ body {
   padding-bottom: 30%; /* space between block and container */
   float: left; /* Moves blocks to same line */
   margin: 1.66%; /* margin between each block  */
+  border-radius: 15%;
+  transition: all 0.3s;
 }
 
 #container {
@@ -35,6 +37,10 @@ h1 {
   font-size: 200%;
 }
 
+#message {
+  display: inline-block; /* helps with spacing */
+  width: 20%;
+}
 /* span {
   color: white;
 } */
@@ -47,7 +53,8 @@ h1 {
 }
 
 .selected {
-  background: blue;
+  color: white;
+  background: steelblue;
 }
 
 button {
@@ -59,4 +66,11 @@ button {
   color: steelblue;
   letter-spacing: 1px; /* kerning */
   font-size: inherit;
+  transition: all 0.3s; /* all = all properties of button that change
+                          2.0 is the num seconds of transition */
+}
+
+button:hover {
+  color: white;
+  background: steelblue;
 }
