@@ -4,6 +4,7 @@ var numSquares = 6;
 
 var colors = generateRandomColors(numSquares); // get array of colors
 
+// Grab squares
 var squares = document.querySelectorAll(".square");
 var pickedColor = pickColor();
 
@@ -24,8 +25,7 @@ var reset = document.querySelector("#reset");
 addReset();
 
 // Get easy/hard buttons
-var easyBtn = document.querySelector("#easyBtn");
-var hardBtn = document.querySelector("#hardBtn");
+var modeButtons = document.querySelectorAll(".mode");
 addDifficultyButtons();
 
 addInteractiveSquares();
@@ -55,27 +55,23 @@ function addInteractiveSquares() {
 
 // Add functionality to easy/hard buttons
 function addDifficultyButtons() {
-  easyBtn.addEventListener("click", function () {
-    // add a class to these buttons to change color
-    this.classList.add("selected");
-    hardBtn.classList.remove("selected");
+  for (var i = 0; i < modeButtons.length; i++) {
+    modeButtons[i].addEventListener("click", function () {
+      modeButtons[0].classList.remove("selected"); // remove from both
+      modeButtons[1].classList.remove("selected"); // remove from both
+      this.classList.add("selected");
+      var difficulty = "none";
 
-    // generate three new colors and hide the other three
-    numSquares = 3;
-    resetGame(numSquares);
-
-    // hide the three bottom colors
-    changeDifficulty("none");
-  })
-
-  hardBtn.addEventListener("click", function () {
-    this.classList.add("selected");
-    easyBtn.classList.remove("selected");
-
-    numSquares = 6;
-    resetGame(numSquares);
-    changeDifficulty("block");
-  })
+      if (this.textContent === "Easy") {
+        numSquares = 3;
+      } else {
+        numSquares = 6;
+        difficulty = "block"
+      }
+      resetGame(numSquares);
+      changeDifficulty(difficulty);
+    })
+  }
 }
 
 // Resets the state of the game
@@ -91,6 +87,8 @@ function resetGame(numColors) {
 
   // Reset header background
   h1.style.background = h1Color;
+
+  message.textContent = "";
 }
 
 // Hides or reveals the bottom three blocks

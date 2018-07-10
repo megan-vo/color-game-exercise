@@ -72,6 +72,7 @@ button {
                           2.0 is the num seconds of transition */
   -webkit-transition: all 0.3s; /* adds more support for more browsers */
   -moz-transition: all 0.3s; /* adds more support for more browsers */
+  outline: none; /* gets rid of blue outline */
 }
 
 button:hover {
